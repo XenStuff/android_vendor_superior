@@ -60,12 +60,15 @@ PRODUCT_PACKAGES += \
     FodAnimations
 endif
 
+TARGET_BUILD_LAWNCHAIR ?= true
+ifeq ($(strip $(TARGET_BUILD_LAWNCHAIR)),true)
+include vendor/lawnchair/lawnchair.mk
+endif
+
 # Charger mode images
-ifeq ($(TARGET_INCLUDE_PIXEL_CHARGER),true)
 PRODUCT_PACKAGES += \
     charger_res_images \
     product_charger_res_images
-endif
 
 # Extra tools in Lineage
 PRODUCT_PACKAGES += \
